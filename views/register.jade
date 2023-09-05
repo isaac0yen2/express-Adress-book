@@ -1,0 +1,20 @@
+doctype html
+html
+  head
+    title= title
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    link(rel='stylesheet', href='/stylesheets/registration.css')
+  body
+    .registration-container
+      h1 Register an Account
+      form(action="/register", method="post")
+        label(for="username") Username:
+        input(type="text", id="username", name="username", required)
+
+        label(for="password") Password:
+        input(type="password", id="password", name="password", required)
+
+        button(type="submit") Register
+      p Already have an account?
+      a(href="/") Log in here

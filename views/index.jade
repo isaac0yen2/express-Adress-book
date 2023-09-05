@@ -1,0 +1,21 @@
+html
+  head
+    title Login Page
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+
+  body
+    .login-container
+      .login-box
+        if username !== null 
+          .success-message #{username}
+
+        h1 Login
+        form(action="/login", method="post")
+          input(type="text", placeholder="Username", name="username", required)
+          input(type="password", placeholder="Password", name="password", required)
+          br
+          button(type="submit") Log In
+          p(style="color: gold; text-align: center; margin-top: 20px;") Don't have an account? 
+          a(href="/register", style="color: #FFD700; text-decoration: underline;") Register Here

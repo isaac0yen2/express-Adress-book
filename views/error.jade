@@ -1,0 +1,15 @@
+doctype html
+html
+  head
+    title Something went wrong
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+  body(style="background: linear-gradient(to bottom right, #8B4513, #FFD700);")
+    .error-container
+      h1(style="color: white; text-align: center; margin-top: 100px;") Oops! Something went wrong.
+      p(style="color: white; text-align: center; margin-top: 20px;")= error
+      p(style="color: white; text-align: center; margin-top: 20px;")
+        Please go back to the 
+        a(href="/", style="color: #FFD700; text-decoration: underline;") Home Page
+        and check your details.

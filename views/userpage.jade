@@ -1,0 +1,58 @@
+doctype html
+html
+  head
+    title=username + ' Address Book'
+    link(rel='stylesheet', href='/stylesheets/user.css')
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+  body
+    h1 #{username}'s Address Book
+    if message !== null 
+        .success-message #{message}
+    - if (data.length === 0)
+        center
+            h1(style="color:black") No data in your address book.
+    - else
+      table
+        tr
+          th Name
+          th Address
+          th Phone Number 
+          th Birthday
+          th Actions
+        each entry in data
+          tr
+            td#hname.td= entry.name
+            td#haddress.td= entry.address
+            td#hphone.td= entry.phone
+            td#hbirth.td= entry.birth
+            td
+              form(action='', method='post' ,id='edit')
+                input(type='hidden', name='hrecordId', value=entry.id)
+                input(type='hidden', name='husername', value=username)
+                input(type='hidden', name='hname', id='cname', value=)
+                input(type='hidden', name='haddress',id='caddress')
+                input(type='hidden', name='hphone',id='cphone')
+                input(type='hidden', name='hbirth',id='cbirth')
+                button(onclick='Edit()', id='SubmitButton') Edit
+              form(action=`/deleted`, method='post')
+                input(type='hidden', name='username', value=username)
+                input(type='hidden', name='recordId', value=entry.id)
+                button(type='submit') Delete
+    center
+        h2 Add New Entry
+        form(action="/add", method="post")
+            label(for="name") Name:
+            input(type="text", id="name", name="name", required)
+            label(for="address") Address:
+            input(type="text", id="address", name="address", required)
+            label(for="phone") Phone Number
+            input(type="number", id="phone", name="phone", required)
+            label(for="birth") Birthday
+            input(type="date", id="address", name="birth", required)
+            label(for="name") User
+            input(type="text", id="uname", name="username", readonly,value=`${username}`,style="    text-transform: none;")
+            button(type="submit") Save
+        a(href="/",onclick="window.open(this.href); window.close(); return false;" ,style="background-color: #8B4513; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;") Log Out
+    script(src="/javascripts/userScript.js")
+      

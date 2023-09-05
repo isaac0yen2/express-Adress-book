@@ -1,0 +1,11 @@
+1 create the log in page that accepts users data and stors it into a database
+2 every registered user is a table
+3 There yould be a separate table for username and password authentication and there would be tables for  every user in the same database.
+4 what the user enters the app...they see as homepage consisting of a log in form containing the input for username and password
+there would be a link as well that would direct them to a page where they will register their username and password.
+when they register, the function handler will take in their information and run an sql code to create a table for them this the username as the name and include the user as part of the aunthetication table. they will eb redirected to the home page afterwards
+when they login, the action would be to an auntheitcation handler which would retrieve all the information from the aunthetication table and verify if the username matches the password.(SELECT * FORM aunthetication WHERE name=`'${req.body.username}'`) once this is true they will be redirected to the user router with a prarmeter that the user function handler would use to retrieve all the informatiom from the table and render it.
+
+
+
+now youve been able to do all that...you have a problem getting the table name so that ypou can specify the record exactly the info should be deleted.
